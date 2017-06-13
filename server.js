@@ -12,6 +12,9 @@ app.use(session({
 }))
 app.use(bp.json());
 app.use(express.static(path.join(__dirname+'/client')))
+require('./server/config/mongoose.js')
+require('./server/config/routes.js')(app)
+
 app.use(express.static(path.join(__dirname+'/node_modules')))
 app.listen(port, function(){
     console.log("server running on " + port)
